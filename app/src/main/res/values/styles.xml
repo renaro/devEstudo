@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/theme_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/theme_colorPrimaryDark</item>
+        <item name="colorAccent">@color/theme_colorAccent</item>
+        <item name="android:textColor">@color/theme_textColor</item>
+        <item name="android:textColorPrimary">@color/theme_textColorPrimary</item>
+        <item name="android:windowBackground">@color/theme_windowBackground</item>
+    </style>
+
+
+    <style name="AppTheme.EpisodeDetails" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="AppTheme.EpisodeDetails.Card" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/card_margin_top</item>
+        <item name="android:paddingBottom">@dimen/card_padding_bottom</item>
+        <item name="android:paddingLeft">@dimen/card_padding_left</item>
+        <item name="android:paddingTop">@dimen/card_padding_top</item>
+        <item name="cardCornerRadius">@dimen/card_cornerRadius</item>
+
+    </style>
+
+    <!-- TO BE CONTINUED -->
+
+</resources>

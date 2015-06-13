@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Default -->
+    <dimen name="default_spacing_small">4dp</dimen>
+    <dimen name="default_spacing_medium">8dp</dimen>
+    <dimen name="default_spacing_large">16dp</dimen>
+    <dimen name="default_textSize_verySmall">12sp</dimen>
+    <dimen name="default_textSize_small">14sp</dimen>
+    <dimen name="default_textSize_medium">16sp</dimen>
+    <dimen name="default_textSize_large">18sp</dimen>
+    <dimen name="default_textSize_veryLarge">24sp</dimen>
+
+    <!-- TO BE CONTINUED -->
+    <dimen name="episodes_img_background_height">248dp</dimen>
+    <dimen name="episodes_title_left_margin">16dp</dimen>
+    <dimen name="episodes_title_bottom_margin">16dp</dimen>
+    <dimen name="episodes_title_font">24sp</dimen>
+    <dimen name="card_cornerRadius">5dp</dimen>
+    <dimen name="card_margin_top">16dp</dimen>
+    <dimen name="card_padding_top">16dp</dimen>
+    <dimen name="card_padding_bottom">16dp</dimen>
+    <dimen name="card_padding_left">19dp</dimen>
+    <dimen name="card_pad">5dp</dimen>
+
+
+
+</resources>
