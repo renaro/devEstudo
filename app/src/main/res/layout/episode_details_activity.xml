@@ -1,6 +1,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/AppTheme.EpisodeDetails"
-
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     >
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,8 +19,9 @@
         android:layout_height="@dimen/episodes_img_background_height"
         android:id="@+id/episodes_img_background"
         android:layout_alignParentTop="true"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         android:background="@drawable/highlight_placeholder"
+        android:layout_marginBottom="@dimen/card_margin"
          />
         <ImageView
             android:layout_width="match_parent"
@@ -30,7 +32,9 @@
             android:background="@drawable/overlay"
             />
 
-    <TextView android:text="@string/episode"
+    <TextView
+        android:id="@+id/episode_title_text"
+        android:text="@string/episode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/episodes_title_font"
@@ -43,20 +47,31 @@
 </RelativeLayout>
 
         <android.support.v7.widget.CardView
+            android:id="@+id/cardview_date"
             style="@style/AppTheme.EpisodeDetails.Card"
             >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_orientation="horizontal"
+
+
             >
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:scaleType="fitXY"
+                style="@style/AppTheme.EpisodeDetails.Card.ClockImage"
                 android:background="@drawable/episode_details_clock"
+                />
+
+
+            <TextView
+                android:id="@+id/cardview_date_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/AppTheme.EpisodeDetails.Card.TextDate"
+                android:text="2015-04-22 as 21:00"
+
                 />
 
         </LinearLayout>
@@ -65,7 +80,45 @@
         </android.support.v7.widget.CardView>
 
 
+    <android.support.v7.widget.CardView
+        style="@style/AppTheme.EpisodeDetails.Card"
+        >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
 
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/AppTheme.EpisodeDetails.SummaryText"
+            android:text="@string/summary"
+
+            />
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/default_background_third"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight= "10dp"
+            android:layout_marginBottom = "10dp"
+            android:layout_marginTop = "10dp"
+
+            />
+
+        <TextView
+            android:id="@+id/cardview_summary_description_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/AppTheme.EpisodeDetails.TextDescription"
+            android:text="DESCRIPTION"
+
+            />
+        </LinearLayout>
+
+        </android.support.v7.widget.CardView>
 
 
  </LinearLayout>

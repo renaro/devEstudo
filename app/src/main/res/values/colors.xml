@@ -15,6 +15,7 @@
     <color name="default_background_third">#E5E5E5</color>
     <color name="default_background_fourth">#FF9800</color>
 
+
     <!-- Theme -->
     <color name="theme_colorPrimary">@color/default_color_first</color>
     <color name="theme_colorPrimaryDark">@color/default_color_second</color>
@@ -22,7 +23,13 @@
     <color name="theme_textColor">#333333</color>
     <color name="theme_textColorPrimary">@color/default_textColor_first</color>
     <color name="theme_windowBackground">@color/default_background_first</color>
-    
+
+
+    <color name="summary_text_date_card">@color/default_color_third</color>
+
+
+
+
     <!-- TO BE CONTINUED -->
 
 </resources>
