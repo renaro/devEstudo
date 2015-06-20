@@ -8,4 +8,5 @@ import model.Episode;
 public interface  OnEpisodeLoaded {
 
     public void onLoaded(Episode ep);
+
 }

@@ -1,27 +1,39 @@
-package com.movile.seriestracker;
+package com.movile.seriestracker.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.movile.seriestracker.R;
+import com.movile.seriestracker.presenter.EpisodeDetailsPresenter;
+import com.movile.seriestracker.view.EpisodeDetailsView;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import model.Episode;
+import model.Images;
+import retrofit.RestAdapter;
 import util.FormatUtil;
 
 
-public class EpisodeDetailsActivity extends ActionBarActivity  implements OnEpisodeLoaded{
+public class EpisodeDetailsActivity extends ActionBarActivity  implements EpisodeDetailsView{
 
 
 
-private TextView episode_details_tv;
-private TextView episode_title_tv;
-private TextView episode_date_tv;
+    private TextView episode_details_tv;
+    private TextView episode_title_tv;
+    private TextView episode_date_tv;
+    private ImageView episode_background;
+    private EpisodeDetailsPresenter presenter;
 
+    private RestAdapter mAdapter;
+    private String url="https://api-v2launch.trakt.tv/shows/game-of-thrones/seasons/1/episodes/1?extended=full,images";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +43,10 @@ private TextView episode_date_tv;
         episode_details_tv = (TextView)findViewById(R.id.cardview_summary_description_text);
         episode_title_tv = (TextView)findViewById(R.id.episode_title_text);
         episode_date_tv = (TextView)findViewById(R.id.cardview_date_text);
-
-       new FetchLocalEpisodeTask(this,this).execute();
-
+        episode_background = (ImageView)findViewById(R.id.episodes_img_background);
+        //request episode details
+        presenter = new EpisodeDetailsPresenter(this);
+        presenter.get();
 
 
     }
@@ -82,18 +95,25 @@ private TextView episode_date_tv;
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        outState.putInt("valor",1);
+        outState.putInt("valor", 1);
         super.onSaveInstanceState(outState);
 
     }
 
+
+
     @Override
-    public void onLoaded(Episode ep) {
-        episode_details_tv.setText(ep.overview());
-        episode_title_tv.setText(ep.title());
-        Date date = new FormatUtil().formatDate(ep.firstAired());
+    public void onEpisodeLoaded(Episode ep) {
+        if(ep!=null) {
+            episode_details_tv.setText(ep.overview());
+            episode_title_tv.setText(ep.title());
+            Date date = new FormatUtil().formatDate(ep.firstAired());
+            episode_date_tv.setText(new SimpleDateFormat("dd/MM/yyyy hh:mm").format(date));
+            Glide.with(this)
+                    .load(ep.images().screenshot().get(Images.ImageSize.THUMB))
+                    .centerCrop()
+                    .into(episode_background);
 
-        episode_date_tv.setText(new SimpleDateFormat("dd/MM/yyyy hh:mm").format(date));
-
+        }
     }
 }
