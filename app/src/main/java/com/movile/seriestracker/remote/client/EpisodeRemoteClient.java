@@ -2,7 +2,7 @@ package com.movile.seriestracker.remote.client;
 
 import android.util.Log;
 
-import com.movile.seriestracker.OnEpisodeLoaded;
+import com.movile.seriestracker.listeners.OnEpisodeLoaded;
 import com.movile.seriestracker.remote.service.EpisodeService;
 
 import model.Episode;
@@ -19,12 +19,12 @@ public class EpisodeRemoteClient {
 
     private final RestAdapter mAdapter;
 
-    public EpisodeRemoteClient(int episode, final OnEpisodeLoaded callback){
+    public EpisodeRemoteClient(String show, int season, int episode, final OnEpisodeLoaded callback){
 
         mAdapter = new RestAdapter.Builder().setEndpoint("https://api-v2launch.trakt.tv").build();
         EpisodeService service = mAdapter.create(EpisodeService.class);
         Log.d("teste","teste");
-        service.getEpisodeDetails("game-of-thrones",(long)1,(long)episode, new Callback<Episode>() {
+        service.getEpisodeDetails(show,(long)season,(long)episode, new Callback<Episode>() {
             @Override
             public void success(Episode episode, Response response) {
                 callback.onLoaded(episode);
@@ -40,5 +40,6 @@ public class EpisodeRemoteClient {
 
 
     }
+
 
 }

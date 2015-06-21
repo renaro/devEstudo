@@ -1,8 +1,6 @@
 package com.movile.seriestracker.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -22,7 +20,7 @@ import retrofit.RestAdapter;
 import util.FormatUtil;
 
 
-public class EpisodeDetailsActivity extends ActionBarActivity  implements EpisodeDetailsView{
+public class EpisodeDetailsActivity extends BaseNavigationToolbarActivity  implements EpisodeDetailsView{
 
 
 
@@ -31,6 +29,12 @@ public class EpisodeDetailsActivity extends ActionBarActivity  implements Episod
     private TextView episode_date_tv;
     private ImageView episode_background;
     private EpisodeDetailsPresenter presenter;
+    public static String EXTRA_SHOW = "show";
+    public static String EXTRA_SEASON = "season";
+    public static String EXTRA_EPISODE= "episode";
+    private String mShow;
+    private int mSeason;
+    private int mEpisode;
 
     private RestAdapter mAdapter;
     private String url="https://api-v2launch.trakt.tv/shows/game-of-thrones/seasons/1/episodes/1?extended=full,images";
@@ -39,29 +43,28 @@ public class EpisodeDetailsActivity extends ActionBarActivity  implements Episod
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.episode_details_activity);
+        configureToolbar();
 
         episode_details_tv = (TextView)findViewById(R.id.cardview_summary_description_text);
         episode_title_tv = (TextView)findViewById(R.id.episode_title_text);
         episode_date_tv = (TextView)findViewById(R.id.cardview_date_text);
         episode_background = (ImageView)findViewById(R.id.episodes_img_background);
         //request episode details
-        presenter = new EpisodeDetailsPresenter(this);
+
+
+        getExtras();
+
+        presenter = new EpisodeDetailsPresenter(this,mShow,mSeason,mEpisode);
         presenter.get();
 
 
     }
-
-    @Override
-    protected void onResume(){
-        super.onResume();
-        Log.d("ON RESUME---------", "");
-    }
-
-    @Override
-    protected void onRestart(){
-        super.onResume();
-        Log.d("ON RESTART", "");
-    }
+    public void getExtras() {
+        Bundle input = getIntent().getExtras();
+        mShow   =    input.getString(EXTRA_SHOW);
+        mSeason =    input.getInt(EXTRA_SEASON,1);
+        mEpisode =   input.getInt(EXTRA_EPISODE,1);
+        }
 
 
     @Override
@@ -110,10 +113,12 @@ public class EpisodeDetailsActivity extends ActionBarActivity  implements Episod
             Date date = new FormatUtil().formatDate(ep.firstAired());
             episode_date_tv.setText(new SimpleDateFormat("dd/MM/yyyy hh:mm").format(date));
             Glide.with(this)
-                    .load(ep.images().screenshot().get(Images.ImageSize.THUMB))
+                    .load(ep.images().screenshot().get(Images.ImageSize.FULL))
                     .centerCrop()
                     .into(episode_background);
 
         }
     }
+
+
 }

@@ -29,7 +29,16 @@
     <dimen name="text_date_card_size">16sp</dimen>
     <dimen name="text_summary_card_size">12sp</dimen>
 
+    <dimen name="list_view_divider">1dp</dimen>
+
+    <dimen name="base_navigation_toolbar_height">56dp</dimen>
+    <dimen name="base_navigation_toolbar_minHeight">@dimen/base_navigation_toolbar_height</dimen>
+
+    <!-- Base Loading -->
+    <dimen name="base_loading_progress_size">48dp</dimen>
 
 
+
+    <dimen name="border_default">16dp</dimen>
 
 </resources>

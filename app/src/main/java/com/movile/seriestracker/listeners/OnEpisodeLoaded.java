@@ -1,4 +1,4 @@
-package com.movile.seriestracker;
+package com.movile.seriestracker.listeners;
 
 import model.Episode;
 

@@ -1,0 +1,80 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/default_background_first">
+
+    <ImageView
+        android:id="@+id/seasonImage"
+        android:layout_height="248dp"
+        android:layout_width="match_parent"
+        android:src="@drawable/highlight_placeholder"
+        android:scaleType="centerCrop"
+        />
+    <ImageView
+        android:id="@+id/seasonImageGradient"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/overlay"
+        android:layout_alignBottom="@+id/seasonImage" />
+
+    <ImageView
+        android:id="@+id/seasonImagePlaceholder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/season_details_show_placeholder"
+        android:layout_alignBottom="@+id/seasonScore"
+        android:layout_marginLeft="@dimen/border_default"
+        />
+
+    <TextView
+        android:id="@+id/seasonTitle"
+        android:text="2015"
+        android:gravity="center"
+        android:layout_above="@id/seasonImagePlaceholder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/seasonImagePlaceholder"
+        android:layout_alignEnd="@+id/seasonImagePlaceholder"
+        android:layout_alignLeft="@+id/seasonImagePlaceholder"
+        android:layout_alignStart="@+id/seasonImagePlaceholder"
+        android:textSize="@dimen/default_textSize_veryLarge"
+        android:textColor="@color/default_textColor_first"
+        android:layout_marginBottom="7dp"/>
+
+
+    <TextView
+        android:id="@+id/seasonScore"
+        android:text="10"
+        android:background="@drawable/rating"
+        android:gravity="center"
+        android:layout_height="60dp"
+        android:layout_width="60dp"
+        android:layout_below="@id/seasonImage"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/border_default"
+        android:layout_marginRight="@dimen/border_default"
+        style="@style/title_image_style"/>
+
+    <TextView
+        android:id="@+id/episodeLabel"
+        android:text="Episodes"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/seasonImagePlaceholder"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/border_default"
+        android:layout_marginTop="@dimen/border_default"
+        android:layout_marginBottom="@dimen/border_default"
+        android:layout_alignRight="@+id/seasonImagePlaceholder"
+        android:layout_alignEnd="@+id/seasonImagePlaceholder"
+        android:layout_alignLeft="@+id/seasonImagePlaceholder"
+        android:layout_alignStart="@+id/seasonImagePlaceholder"
+        android:textColor="@color/default_textColor_fifth"
+        android:textSize="@dimen/default_textSize_small"
+        />
+
+
+
+</RelativeLayout>
