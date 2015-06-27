@@ -4,16 +4,76 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    RelativeLayout
+    android:id="@+id/headerView"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content">
+    <ImageView
+        android:id="@+id/serieImageFragment"
+        android:layout_height="@dimen/height_upper_image"
+        android:layout_width="match_parent"
+        android:src="@drawable/highlight_placeholder"
+        android:scaleType="centerCrop"
+        />
+    <ImageView
+        android:id="@+id/serieImageGradient"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@+id/serieImageFragment"
+        android:background="@drawable/overlay"
+        />
+    <TextView
+        android:id="@+id/showScore"
+        android:text="10"
+        android:background="@drawable/rating"
+        android:gravity="center"
+        android:layout_height="58dp"
+        android:layout_width="66dp"
+        android:layout_below="@id/seasonImage"
+        android:layout_alignBottom="@+id/serieImageGradient"
+        android:layout_marginLeft="@dimen/border_super_large"
+        android:layout_marginBottom="@dimen/border_large"
+        android:textColor="@color/default_background_first"
+        android:textSize="@dimen/default_textSize_veryLarge"/>
+    <TextView
+        android:id="@+id/ended"
+        android:text="ended"
+        android:gravity="center"
+        android:layout_width="72dp"
+        android:layout_height="32dp"
+        android:layout_alignRight="@id/serieImageFragment"
+        android:background="@drawable/show_details_status"
+        android:textSize="@dimen/default_textSize_medium"
+        android:textColor="@color/default_textColor_first"
+        android:layout_marginTop="68dp"
+        android:layout_marginBottom="7dp"/>
+    <TextView
+        android:id="@+id/showTitle"
+        android:text="2015"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/showScore"
+        android:layout_alignLeft="@+id/showScore"
+        android:layout_alignStart="@+id/showScore"
+        android:textSize="@dimen/default_textSize_veryLarge"
+        android:textColor="@color/default_textColor_first"
+        android:layout_marginBottom="7dp"/>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/show_details_content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/serieImageFragment"
+
+        >
 
         <android.support.v4.view.PagerTabStrip
             android:id="@+id/pager_tab"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+
+            />
 
     </android.support.v4.view.ViewPager>
 

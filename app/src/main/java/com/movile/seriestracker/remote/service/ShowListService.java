@@ -1,23 +1,23 @@
 package com.movile.seriestracker.remote.service;
 
+import java.util.ArrayList;
+
 import model.Show;
 import retrofit.Callback;
 import retrofit.http.GET;
 import retrofit.http.Headers;
-import retrofit.http.Path;
 import util.ApiConfiguration;
 
 /**
- * Created by movile on 21/06/15.
+ * Created by movile on 27/06/15.
  */
-public interface ShowService {
+public interface ShowListService {
+
     @Headers({
             "trakt-api-version: " + ApiConfiguration.API_VERSION,
             "trakt-api-key: " + ApiConfiguration.API_KEY
     })
-    @GET("/shows/{show}?extended=full,images")
-    void getShow(
-            @Path("show") String show,
-            Callback<Show> callback);
-}
+    @GET("/shows/popular?limit=50&extended=full,images")
+    void getShowList(Callback<ArrayList<Show>> callback);
 
+    }

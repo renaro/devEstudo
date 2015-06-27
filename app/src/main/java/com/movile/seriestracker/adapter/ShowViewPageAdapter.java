@@ -17,7 +17,7 @@ import model.Show;
 public class ShowViewPageAdapter extends FragmentPagerAdapter {
 
     public static int POSITION_INFO=0;
-    public static int POSITION_SEASONS=0;
+    public static int POSITION_SEASONS=1;
     private Show mShow;
 
     public ShowViewPageAdapter(FragmentManager fragmentManager,Show show) {
@@ -34,11 +34,14 @@ public class ShowViewPageAdapter extends FragmentPagerAdapter {
         if(position == POSITION_INFO){
             arg.putSerializable(ShowFragmentInfo.EXTRA_SHOW,mShow);
             fragment = new ShowFragmentInfo();
+            fragment.setArguments(arg);
 
         }
         if(position == POSITION_SEASONS){
-            arg.putSerializable(ShowFragmentSeasons.EXTRA_SHOW,mShow);
+            arg.putString(ShowFragmentSeasons.EXTRA_SHOW, mShow.ids().slug());
             fragment = new ShowFragmentSeasons();
+            fragment.setArguments(arg);
+
         }
 
         return fragment;

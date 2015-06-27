@@ -23,12 +23,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/season_details_show_placeholder"
-        android:layout_alignBottom="@+id/seasonScore"
+        android:layout_alignBottom="@+id/showScore"
         android:layout_marginLeft="@dimen/border_default"
         />
 
     <TextView
-        android:id="@+id/seasonTitle"
+        android:id="@+id/showTitle"
         android:text="2015"
         android:gravity="center"
         android:layout_above="@id/seasonImagePlaceholder"
@@ -44,7 +44,7 @@
 
 
     <TextView
-        android:id="@+id/seasonScore"
+        android:id="@+id/showScore"
         android:text="10"
         android:background="@drawable/rating"
         android:gravity="center"

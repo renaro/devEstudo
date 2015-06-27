@@ -102,4 +102,30 @@
         <item name="android:textColor">@color/default_textColor_first</item>
     </style>
 
+
+    <style name="AppTheme.Card" >
+        <item name="android:textColor">@color/summary_text_date_card</item>
+        <item name="android:layout_marginLeft">@dimen/text_date_card_padding_left</item>
+        <item name="android:layout_marginTop">@dimen/text_date_card_padding_left</item>
+        <item name="android:textSize">@dimen/text_summary_card_size</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AppTheme.SeasonsCard" >
+        <item name="cardCornerRadius">@dimen/card_cornerRadius</item>
+
+    </style>
+
+    <style name="AppTheme.Grid">
+        <item name="android:numColumns">auto_fit</item>
+        <item name="android:verticalSpacing">@dimen/grid_spacing</item>
+        <item name="android:gravity">center</item>
+        <item name="android:columnWidth">@dimen/grid_item_width</item>
+        <item name="android:stretchMode">spacingWidthUniform</item>
+        <item name="android:paddingTop">@dimen/grid_padding</item>
+        <item name="android:paddingBottom">@dimen/grid_padding</item>
+        <item name="android:clipToPadding">false</item>
+    </style>
+
 </resources>
