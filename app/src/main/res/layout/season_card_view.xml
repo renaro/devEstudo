@@ -17,11 +17,10 @@
 
     <ImageView
         android:id="@+id/seasonCardImageView"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/season_card_width"
         android:layout_height="@dimen/season_card_image_view"
         android:src="@drawable/highlight_placeholder"
         android:scaleType="centerCrop"
-        android:layout_alignParentTop="true"
         />
     <TextView
         android:id="@+id/seasonCardTitle"

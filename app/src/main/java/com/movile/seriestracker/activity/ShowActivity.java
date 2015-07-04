@@ -31,6 +31,8 @@ public class ShowActivity extends Activity implements ShowView ,OnShowClicked {
         presenter = new ShowPresenter(this);
         presenter.getList();
 
+
+
     }
 
     @Override
@@ -45,6 +47,7 @@ public class ShowActivity extends Activity implements ShowView ,OnShowClicked {
     public void onShowCLicked(Show show) {
         Intent intent = new Intent(this,ShowDetailsActivity.class);
         intent.putExtra(ShowDetailsActivity.SHOW_EXTRA,show.ids().slug());
+        intent.putExtra(ShowDetailsActivity.TITLE_EXTRA,show.title());
         startActivity(intent);
 
     }

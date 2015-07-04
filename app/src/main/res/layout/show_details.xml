@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/view_pager_container"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -33,8 +34,24 @@
         android:layout_alignBottom="@+id/serieImageGradient"
         android:layout_marginLeft="@dimen/border_super_large"
         android:layout_marginBottom="@dimen/border_large"
+        android:maxLines="1"
         android:textColor="@color/default_background_first"
         android:textSize="@dimen/default_textSize_veryLarge"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/show_details_favorite"
+        android:layout_height="56dp"
+        android:layout_width="56dp"
+        android:layout_alignBottom="@+id/showScore"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/border_super_large"
+        android:layout_alignParentEnd="true"
+     
+
+
+        android:src="@drawable/show_details_favorite_off" />
+
+
     <TextView
         android:id="@+id/ended"
         android:text="ended"

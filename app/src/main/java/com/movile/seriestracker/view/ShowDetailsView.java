@@ -8,4 +8,5 @@ import model.Show;
 public interface ShowDetailsView {
 
     public void onShowLoaded(Show show);
+    public void onFavoriteLoaded(boolean isFavorite);
 }

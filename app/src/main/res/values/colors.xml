@@ -36,6 +36,12 @@
     <color name="base_loading_container_background">#99333333</color>
 
 
+    <color name="show_details_favorite_on">#f57c00</color>
+    <color name="show_details_favorite_off">#9b9b9b</color>
+
+
+
+
     <!-- TO BE CONTINUED -->
 
 </resources>

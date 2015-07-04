@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.movile.seriestracker.R;
+import com.movile.seriestracker.listeners.OnSeasonsClicked;
 
 import java.util.ArrayList;
 
@@ -22,11 +23,13 @@ import model.Season;
 public class ShowRecyclerAdapter extends RecyclerView.Adapter<ShowRecyclerAdapter.ViewHolder> {
 
     private final Context ctx;
+    private final OnSeasonsClicked listener;
     private ArrayList<Season> list;
 
-    public ShowRecyclerAdapter(ArrayList<Season> list, Context ctx) {
+    public ShowRecyclerAdapter(ArrayList<Season> list,OnSeasonsClicked listener, Context ctx) {
         this.list = list;
         this.ctx=ctx;
+        this.listener=listener;
     }
 
 
@@ -38,13 +41,20 @@ public class ShowRecyclerAdapter extends RecyclerView.Adapter<ShowRecyclerAdapte
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
-        Season season= getSeason(i);
+        final Season season= getSeason(i);
         viewHolder.textTitle.setText("Season "+season.number());
         viewHolder.textQuantityEpisodes.setText(season.episodeCount()+" episodes");
         Glide.with(ctx)
-                .load(season.images().thumb().get(Images.ImageSize.FULL))
+                .load(season.images().poster().get(Images.ImageSize.FULL))
                 .centerCrop()
                 .into(viewHolder.image);
+        viewHolder.image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onSeasonsClicked(season);
+            }
+        });
+
     }
 
 

@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.movile.seriestracker.R;
 import com.movile.seriestracker.adapter.ShowRecyclerAdapter;
+import com.movile.seriestracker.listeners.OnSeasonsClicked;
 import com.movile.seriestracker.presenter.ShowSeasonsPresenter;
 import com.movile.seriestracker.view.ShowSeasonsView;
 
@@ -21,7 +22,7 @@ import model.Season;
 /**
  * Created by movile on 21/06/15.
  */
-public class ShowFragmentSeasons extends Fragment implements ShowSeasonsView {
+public class ShowFragmentSeasons extends Fragment implements ShowSeasonsView,OnSeasonsClicked {
 
     public static final String EXTRA_SHOW = "show";
     private ShowSeasonsPresenter presenter;
@@ -58,8 +59,14 @@ public class ShowFragmentSeasons extends Fragment implements ShowSeasonsView {
 
     @Override
     public void onSeasonsLoaded(ArrayList<Season> seasons) {
-        ShowRecyclerAdapter adapter = new ShowRecyclerAdapter(seasons,getActivity());
+        ShowRecyclerAdapter adapter = new ShowRecyclerAdapter(seasons,this,getActivity());
         recyclerView.setAdapter(adapter);
+
+
+    }
+
+    @Override
+    public void onSeasonsClicked(Season season) {
 
 
     }

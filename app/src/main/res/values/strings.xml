@@ -10,6 +10,7 @@
     <string name="action_settings">Settings</string>
     <string name="summary">SUMMARY</string>
     <string name="genres">GENRES</string>
+    <string name="database_authority">com.movile.seriestracker</string>
 
     <!-- TO BE CONTINUED -->
 
