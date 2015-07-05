@@ -62,7 +62,6 @@ public class ShowDetailsActivity extends BaseNavigationToolbarActivity implement
         Intent data = getIntent();
         mShowName = data.getStringExtra(this.SHOW_EXTRA);
         mTitle = data.getStringExtra(this.TITLE_EXTRA);
-
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.movile.seriestracker.activity;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -27,19 +28,18 @@ public class ShowFragmentSeasons extends Fragment implements ShowSeasonsView,OnS
     public static final String EXTRA_SHOW = "show";
     private ShowSeasonsPresenter presenter;
     private RecyclerView recyclerView;
-
+   private  String show="";
 
     @Override
     public void onResume (){
         super.onResume();
         Bundle data = getArguments();
-        String show="";
+
         if(data != null){
             show= data.getString(this.EXTRA_SHOW);
-
+            presenter = new ShowSeasonsPresenter(this,show);
+            presenter.get();
         }
-        presenter = new ShowSeasonsPresenter(this,show);
-        presenter.get();
 
     }
 
@@ -67,6 +67,11 @@ public class ShowFragmentSeasons extends Fragment implements ShowSeasonsView,OnS
 
     @Override
     public void onSeasonsClicked(Season season) {
+
+        Intent intent = new Intent(getActivity(),SeasonEpisodesActivity.class);
+        intent.putExtra(SeasonEpisodesActivity.SHOW_EXTRA,show);
+        intent.putExtra(SeasonEpisodesActivity.SEASON_EXTRA,season.number());
+        startActivity(intent);
 
 
     }
