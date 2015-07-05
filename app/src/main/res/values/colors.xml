@@ -38,7 +38,7 @@
 
     <color name="show_details_favorite_on">#f57c00</color>
     <color name="show_details_favorite_off">#9b9b9b</color>
-
+    <color name="base_navigation_drawer_content_background">@color/default_background_second</color>
 
 
 

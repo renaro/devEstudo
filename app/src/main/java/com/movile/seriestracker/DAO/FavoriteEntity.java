@@ -24,4 +24,20 @@ public class FavoriteEntity extends BaseModel {
         mTitle=title;
     }
     public FavoriteEntity(){}
+
+    public String getSlug() {
+        return mSlug;
+    }
+
+    public void setSlug(String mSlug) {
+        this.mSlug = mSlug;
+    }
+
+    public String getTitle() {
+        return mTitle;
+    }
+
+    public void setTitle(String mTitle) {
+        this.mTitle = mTitle;
+    }
 }

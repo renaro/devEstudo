@@ -1,5 +1,7 @@
 package com.movile.seriestracker.activity;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -14,8 +16,11 @@ import com.movile.seriestracker.adapter.ShowViewPageAdapter;
 import com.movile.seriestracker.presenter.ShowDetailsPresenter;
 import com.movile.seriestracker.view.ShowDetailsView;
 
+import java.util.ArrayList;
+
 import model.Images;
 import model.Show;
+import util.AnimationHelper;
 
 /**
  * Created by movile on 21/06/15.
@@ -100,6 +105,16 @@ public class ShowDetailsActivity extends BaseNavigationToolbarActivity implement
     @Override
     public void onClick(View v) {
         if(v.getId() == fab.getId()){
+
+            AnimationHelper helper = new AnimationHelper(v);
+            AnimatorSet set = new AnimatorSet();
+            helper.scale(1,0,1000);
+            helper.rotate(0,180,900);
+            ArrayList<ObjectAnimator> list=helper.getScaleAnimation();
+            set.playTogether(list.get(0),list.get(1),helper.rotatation);
+            set.setDuration(1000);
+            set.start();
+
             if(!isFavorite){
                 isFavorite=true;
                 fab.setImageResource(R.drawable.show_details_favorite_on);
@@ -111,6 +126,13 @@ public class ShowDetailsActivity extends BaseNavigationToolbarActivity implement
                 fab.setBackgroundTintList(getResources().getColorStateList(R.color.show_details_favorite_off));
                 presenter.removeFavorite(this, getLoaderManager());
             }
+            helper.scale(0,1,1000);
+            helper.rotate(180, 360, 900);
+            set = new AnimatorSet();
+            list=helper.getScaleAnimation();
+            set.playTogether(list.get(0),list.get(1),helper.rotatation);
+            set.setDuration(1000);
+            set.start();
         }
     }
 }

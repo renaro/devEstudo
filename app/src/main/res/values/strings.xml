@@ -4,8 +4,6 @@
     <string name="app_name">Series Tracker</string>
 
     <!-- Base Navigation -->
-    <string name="base_navigation_drawer_open">Open</string>
-    <string name="base_navigation_drawer_close">Close</string>
     <string name="episode">Episode</string>
     <string name="action_settings">Settings</string>
     <string name="summary">SUMMARY</string>
@@ -14,4 +12,6 @@
 
     <!-- TO BE CONTINUED -->
 
+    <string name="base_navigation_drawer_open">Open</string>
+    <string name="base_navigation_drawer_close">Close</string>
 </resources>

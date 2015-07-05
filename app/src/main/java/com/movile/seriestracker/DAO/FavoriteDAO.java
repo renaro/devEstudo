@@ -1,6 +1,7 @@
 package com.movile.seriestracker.DAO;
 
 import android.content.Context;
+import android.database.Cursor;
 
 import com.raizlabs.android.dbflow.sql.builder.Condition;
 import com.raizlabs.android.dbflow.sql.language.Delete;
@@ -26,11 +27,11 @@ public class FavoriteDAO {
 
     }
 
-    /*    public Cursor all() {
-            Uri uri = new ProviderUriHelper(mContext).mountManyUri(FavoriteEntity.FavoriteEntityFields.TABLE_NAME);
-            return mContext.getContentResolver().query(uri, null, null, null, FavoriteEntity.FavoriteEntityFields.COLUMN_TITLE);
-        }
-    */
+       public Cursor all() {
+         return new Select().from(FavoriteEntity.class).where().query();
+       }
+
+
         public Favorite query(String slug) {
 
             FavoriteEntity entity = new Select()

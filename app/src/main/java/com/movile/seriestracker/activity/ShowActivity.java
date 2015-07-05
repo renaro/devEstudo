@@ -1,6 +1,5 @@
 package com.movile.seriestracker.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.GridView;
@@ -18,7 +17,7 @@ import model.Show;
 /**
  * Created by movile on 27/06/15.
  */
-public class ShowActivity extends Activity implements ShowView ,OnShowClicked {
+public class ShowActivity extends BaseNavigationDrawerActivity implements ShowView ,OnShowClicked {
 
     private GridView grid;
     private ShowPresenter presenter;
@@ -27,11 +26,10 @@ public class ShowActivity extends Activity implements ShowView ,OnShowClicked {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.show_grid);
+        configureNavigation();
         grid=(GridView)findViewById(R.id.showGrid);
         presenter = new ShowPresenter(this);
         presenter.getList();
-
-
 
     }
 
